@@ -1,20 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { ButtonAppBar } from './components/navbar/Navbar'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LandingPage } from './components/landingPage/LandingPage'
-import { ThemeProvider } from '@emotion/react';
-import { theme } from './components/theme/theme';
+import Home from './pages/Home';
+import { Contract } from './pages/Contract';
+import { Passport } from './pages/Passport';
 
-function App() {
+export default function App() {
   return (
-    <div>
-      <ThemeProvider theme={theme}>
-        <ButtonAppBar />
-        <LandingPage />
-      </ThemeProvider>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/landing" element={<LandingPage />} />
+        <Route path="/contract" element={<Contract />} />
+        <Route path="/passport" element={<Passport />} />
+      </Routes>
+    </BrowserRouter>
+
+
   );
 }
-
-export default App;

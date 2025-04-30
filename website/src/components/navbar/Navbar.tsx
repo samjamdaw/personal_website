@@ -8,7 +8,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { Menu } from './Menu';
 
-export function ButtonAppBar() {
+export function Navbar() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const handleMenuToggle = (event: React.MouseEvent<HTMLElement>) => {
