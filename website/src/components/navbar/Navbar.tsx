@@ -1,25 +1,46 @@
+import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+import { Menu } from './Menu';
 
-export default function ButtonAppBar() {
+export function ButtonAppBar() {
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+
+  const handleMenuToggle = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const isMenuOpen = Boolean(anchorEl);
+  const icon = isMenuOpen ? <CloseIcon /> : <MenuIcon />;
+
+
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: "white" }}>
-        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', color: "black" }}>
-          <IconButton
+      <AppBar position="static" sx={{ backgroundColor: 'white' }}>
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', color: 'black' }}>
+            <IconButton
             size="large"
             edge="start"
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Button sx={{display: 'flex', justifyContent: 'right'}} color="inherit">Login</Button>
+            onClick={handleMenuToggle}
+            >
+            {icon}
+            </IconButton>
+          <Menu open={isMenuOpen} anchorEl={anchorEl} onClose={handleMenuClose} />
+          <Button sx={{ display: 'flex', justifyContent: 'right' }} color="inherit">
+            Login
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>
