@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { LandingPage } from "./components/landingPage/LandingPage";
-import { Contract } from "./pages/Contract";
+import { Contract } from "./pages/contract/Contract";
 import Home from "./pages/Home";
 import { Passport } from "./pages/Passport";
 

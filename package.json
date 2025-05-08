@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "@mui/icons-material": "^7.0.2",
-    "@mui/material": "^7.0.2"
+    "@mui/material": "^7.0.2",
+    "firebase": "^11.7.1"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4"
