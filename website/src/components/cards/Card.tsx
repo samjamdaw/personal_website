@@ -4,6 +4,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { CardActionArea, CardHeader } from '@mui/material';
 import Typography from '@mui/material/Typography';
+import { useNavigate } from 'react-router-dom';
 
 
 interface CardProps {
@@ -12,6 +13,11 @@ interface CardProps {
 }
 
 function SelectActionCard(props: CardProps) {
+  console.log('hello')
+  const navigate = useNavigate();
+  const route = props.title.replace(/\s+/g, '-').toLowerCase();
+  console.log('hellooo') 
+
   return (
     <Box
       sx={{
@@ -22,7 +28,7 @@ function SelectActionCard(props: CardProps) {
       }}
     >
       <Card>
-          <CardActionArea>
+          <CardActionArea onClick={() => navigate(`/${route}`)}>
               <CardContent sx={{ height: '100%' }}>
                   <CardHeader
                   avatar={props.icon}/>
